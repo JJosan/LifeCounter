@@ -11,11 +11,14 @@ import Foundation
 
 class ViewController: UIViewController {
 
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         addPlayersButton()
         showPlayers()
         makeChungusButton()
+        historyButtonConstraints()
     }
     
     // create player
@@ -83,6 +86,9 @@ class ViewController: UIViewController {
     
     // array to hold all the players
     var allPlayers : [Player] = []
+    
+    // button to open up history
+    @IBOutlet weak var historyButton: UIButton!
     
     func addPlayer(_ newPlayer : Player) -> Player {
         // create horizontal stackview to hold all the buttons
@@ -261,6 +267,17 @@ class ViewController: UIViewController {
         //Constraints for stackview that I also found on the internet
         stackView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
         stackView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
+    }
+    
+    func historyButtonConstraints() {
+        historyButton.setTitle("history", for: .normal)
+        historyButton.backgroundColor = UIColor.blue
+        historyButton.setTitleColor(UIColor.white, for: .normal)
+        historyButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        // add constraints
+        historyButton.centerXAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: -50).isActive = true
+        historyButton.centerYAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -20).isActive = true
     }
     
 }

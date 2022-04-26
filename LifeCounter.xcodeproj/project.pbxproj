@@ -13,6 +13,7 @@
 		5080CA8E281147D1001F9151 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5080CA8C281147D1001F9151 /* Main.storyboard */; };
 		5080CA90281147D2001F9151 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5080CA8F281147D2001F9151 /* Assets.xcassets */; };
 		5080CA93281147D2001F9151 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5080CA91281147D2001F9151 /* LaunchScreen.storyboard */; };
+		508154FA2818921500404ADD /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508154F92818921400404ADD /* History.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		5080CA8F281147D2001F9151 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5080CA92281147D2001F9151 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5080CA94281147D2001F9151 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		508154F92818921400404ADD /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				5080CA86281147D1001F9151 /* AppDelegate.swift */,
 				5080CA88281147D1001F9151 /* SceneDelegate.swift */,
 				5080CA8A281147D1001F9151 /* ViewController.swift */,
+				508154F92818921400404ADD /* History.swift */,
 				5080CA8C281147D1001F9151 /* Main.storyboard */,
 				5080CA8F281147D2001F9151 /* Assets.xcassets */,
 				5080CA91281147D2001F9151 /* LaunchScreen.storyboard */,
@@ -140,6 +143,7 @@
 			files = (
 				5080CA8B281147D1001F9151 /* ViewController.swift in Sources */,
 				5080CA87281147D1001F9151 /* AppDelegate.swift in Sources */,
+				508154FA2818921500404ADD /* History.swift in Sources */,
 				5080CA89281147D1001F9151 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
