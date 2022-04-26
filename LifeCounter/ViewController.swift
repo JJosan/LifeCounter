@@ -66,8 +66,8 @@ class ViewController: UIViewController {
         }
     }
     
-    // change big damage button
-    
+    // change big damage input field
+    let bigChungusInput = UITextField()
     
     // add player button
     let addPlayerButton = UIButton()
@@ -165,9 +165,8 @@ class ViewController: UIViewController {
     }
     
     @objc func changeChungus(_ sender: UIButton) {
-        
-        // do something to get a user value
-        bigChungus = 10
+        // change the big chunk to the input value, if it doesn't work, default to 5
+        bigChungus = Int(bigChungusInput.text!) ?? 5
         
         // for loop to change all the labels
         for i in 0...allPlayers.count - 1 {
@@ -204,17 +203,20 @@ class ViewController: UIViewController {
     func makeChungusButton() {
         let chungusHolder = UIStackView()
         chungusHolder.axis  = NSLayoutConstraint.Axis.horizontal
+        chungusHolder.distribution  = UIStackView.Distribution.equalSpacing
+        chungusHolder.alignment = UIStackView.Alignment.center
+        chungusHolder.spacing   = 2.0
         chungusHolder.translatesAutoresizingMaskIntoConstraints = false
         
         let bigChungusButton = UIButton()
-        bigChungusButton.setTitle("Change Big Damage", for: .normal)
+        bigChungusButton.setTitle("change chunk", for: .normal)
         bigChungusButton.backgroundColor = UIColor.blue
         bigChungusButton.addTarget(self, action: #selector(changeChungus(_:)), for: .touchUpInside)
         
-        let bigChungusLabel = UILabel()
-        bigChungusLabel.text = "test"
+        bigChungusInput.keyboardType = .decimalPad
+        bigChungusInput.placeholder = "num"
         
-        chungusHolder.addArrangedSubview(bigChungusLabel)
+        chungusHolder.addArrangedSubview(bigChungusInput)
         chungusHolder.addArrangedSubview(bigChungusButton)
         self.view.addSubview(chungusHolder)
         
