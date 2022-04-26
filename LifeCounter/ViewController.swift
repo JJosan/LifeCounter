@@ -21,6 +21,19 @@ class ViewController: UIViewController {
         historyButtonConstraints()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let other = segue.destination as! History
+        
+        if gameHistory.count > 0 {
+            for i in 0...gameHistory.count - 1 {
+                let thing = UILabel()
+                thing.text = gameHistory[i]
+                other.gameMessages.addArrangedSubview(thing)
+            }
+        }
+        
+    }
+    
     // create player
     class Player {
         let id : Int
@@ -90,6 +103,8 @@ class ViewController: UIViewController {
     // button to open up history
     @IBOutlet weak var historyButton: UIButton!
     
+    var gameHistory : [String] = []
+    
     func addPlayer(_ newPlayer : Player) -> Player {
         // create horizontal stackview to hold all the buttons
         // and stuff with the settings i found on the internet
@@ -136,30 +151,38 @@ class ViewController: UIViewController {
         let player = allPlayers[sender.tag]
         player.score -= bigChungus
         rerenderScore(player)
+        updateHistory(player, bigChungus, "lost")
         checkForDeath(player)
         disableAddPlayer()
+        
     }
     
     @objc func handleMinus1(_ sender: UIButton) {
         let player = allPlayers[sender.tag]
         player.score -= 1
         rerenderScore(player)
+        updateHistory(player, 1, "lost")
         checkForDeath(player)
         disableAddPlayer()
+        
     }
     
     @objc func handlePlus1(_ sender: UIButton) {
         let player = allPlayers[sender.tag]
         player.score += 1
         rerenderScore(player)
+        updateHistory(player, 1, "gained")
         disableAddPlayer()
+        
     }
     
     @objc func handlePlusX(_ sender: UIButton) {
         let player = allPlayers[sender.tag]
         player.score += bigChungus
         rerenderScore(player)
+        updateHistory(player, bigChungus, "gained")
         disableAddPlayer()
+        
     }
     @objc func handleAddingPlayers(_ sender: UIButton) {
         
@@ -198,6 +221,8 @@ class ViewController: UIViewController {
             player.plus1.backgroundColor = UIColor.lightGray
             player.plusX.backgroundColor = UIColor.lightGray
             player.nameLabel.isUserInteractionEnabled = false
+            if gameHistory.count >= 10 { gameHistory.remove(at: 0) }
+            gameHistory.append("\(player.name) has died")
         }
     }
     
@@ -278,6 +303,11 @@ class ViewController: UIViewController {
         // add constraints
         historyButton.centerXAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: -50).isActive = true
         historyButton.centerYAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -20).isActive = true
+    }
+    
+    func updateHistory(_ player : Player, _ dmg : Int, _ gainOrLoss : String) {
+        if gameHistory.count >= 10 { gameHistory.remove(at: 0) }
+        gameHistory.append("\(player.name) \(gainOrLoss) \(dmg) life")
     }
     
 }
