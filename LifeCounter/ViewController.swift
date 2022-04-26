@@ -209,7 +209,7 @@ class ViewController: UIViewController {
         chungusHolder.translatesAutoresizingMaskIntoConstraints = false
         
         let bigChungusButton = UIButton()
-        bigChungusButton.setTitle("change chunk", for: .normal)
+        bigChungusButton.setTitle("change", for: .normal)
         bigChungusButton.backgroundColor = UIColor.blue
         bigChungusButton.addTarget(self, action: #selector(changeChungus(_:)), for: .touchUpInside)
         
@@ -221,8 +221,8 @@ class ViewController: UIViewController {
         self.view.addSubview(chungusHolder)
         
         // add constraints
-        bigChungusButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
-        bigChungusButton.centerYAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -20).isActive = true
+        chungusHolder.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+        chungusHolder.centerYAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -20).isActive = true
     }
     
     
@@ -240,6 +240,7 @@ class ViewController: UIViewController {
         addPlayerButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
         addPlayerButton.centerYAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 20).isActive = true
     }
+    
     
     func showPlayers() {
         // some stack view settings I found on the internet lmbao
