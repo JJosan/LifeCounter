@@ -17,12 +17,6 @@ class History: UIViewController {
         createDismissButton()
         createGameMessages()
         
-//        for i in 0...gameHistory.count - 1 {
-//            let thing = UILabel()
-//            thing.text = gameHistory[i]
-//            gameMessages.addArrangedSubview(thing)
-//        }
-        
     }
     
     func createDismissButton() {
